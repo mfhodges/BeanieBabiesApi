@@ -1,11 +1,8 @@
-import React, {useState, Fragment} from 'react'
+import React, {useState} from 'react'
 import {BBCard} from '../components/BBCard'
-import Select from 'react-select';
 import { Link } from 'react-router-dom';
 import { gql, useLazyQuery } from '@apollo/client';
 
-//import ExampleDate from '../components/DatePicker'
-//import 'react-day-picker/lib/style.css';
 
 
 const SEARCH_BEANIES = gql`

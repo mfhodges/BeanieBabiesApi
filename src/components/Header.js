@@ -9,9 +9,9 @@ export const Header = () =>
                 <h1><a href="/">Beanie Babies</a></h1>
             </hgroup>
             <ul className="header-links">
-                <li><a href="/graphql" target="_blank">GraphQL - MADDY REPLACE THIS</a></li>
+                <li><a href="/.netlify/functions/graphql" target="_blank" rel="noopener noreferrer">GraphQL</a></li>
                 <li><Link to="/about">About</Link></li>
-                <li><a href="https://github.com/Mfhodges/BB-frontend" target="_blank" >Github</a></li>
+                <li><a href="https://github.com/Mfhodges/BB-frontend" target="_blank" rel="noopener noreferrer" >Github</a></li>
             </ul>
         </header>
         <nav role="navigation" className="header-nav"><ul className="main-navigation">
