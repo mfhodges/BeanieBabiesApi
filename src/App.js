@@ -10,13 +10,28 @@ import {BBProfile} from './pages/BBProfile'
 import {Birthday} from './pages/Birthday'
 import {Search} from './pages/Search'
 import {BBMatch} from './components/BBMatch'
-import ApolloClient from "apollo-boost";
+//import ApolloClient from "apollo-boost";
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client';
+import { gql } from '@apollo/client';
+
 
 
 const client = new ApolloClient({
-  uri: "/.netlify/functions/graphql"
+  //uri:'http://localhost:9000/.netlify/functions/graphql',
+  uri: "/.netlify/functions/graphql",
+  cache: new InMemoryCache(),
 });
+
+client
+  .query({
+    query: gql`
+      query {
+        hello
+      }
+    `
+  })
+  .then(result => console.log(result));
 
 function App() {
   useEffect(() => {
