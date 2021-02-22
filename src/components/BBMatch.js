@@ -2,7 +2,7 @@ import React from "react";
 import { gql, useQuery } from "@apollo/client";
 
 const GET_MATCH = gql`
-  query {
+  {
     hello
   }
 `;
@@ -13,8 +13,9 @@ const GET_MATCH = gql`
 
 export const BBMatch = ({ birthday = 0 }) => {
   const { loading, error, match } = useQuery(GET_MATCH);
-  console.log({ match });
+  
   if (loading) return "Loading...";
   if (error) return "Error :(";
-  return <p> okay</p>;
+  console.log({ match });
+  return <p> {match}</p>;
 };

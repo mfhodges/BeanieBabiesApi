@@ -20,6 +20,8 @@ const server = new ApolloServer({
   resolvers,
   introspection: true,  
   playground: true,
+  cors:true,
 });
+
 
 exports.handler = server.createHandler();

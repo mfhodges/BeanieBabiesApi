@@ -1,6 +1,5 @@
 import { Switch, Route } from 'react-router-dom'
 import React, { useEffect} from 'react'
-import ReactGA from 'react-ga'
 import {Header} from './components/Header'
 import {Footer} from './components/Footer'
 import {Home} from './pages/Home'
@@ -11,34 +10,20 @@ import {Birthday} from './pages/Birthday'
 import {Search} from './pages/Search'
 import {BBMatch} from './components/BBMatch'
 //import ApolloClient from "apollo-boost";
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink} from '@apollo/client';
 import { ApolloProvider } from '@apollo/client';
 import { gql } from '@apollo/client';
 
 
 
 const client = new ApolloClient({
-  //uri:'https://www.beaniebabiesapi.com/.netlify/functions/graphql',
-  uri: "/.netlify/functions/graphql",
+  uri: "http://localhost:9000/.netlify/functions/graphql",
   cache: new InMemoryCache(),
 });
 
-client
-  .query({
-    query: gql`
-      query {
-        hello
-      }
-    `
-  })
-  .then(result => console.log(result));
 
 function App() {
-  useEffect(() => {
-    ReactGA.initialize('UA-165762946-2');
-    // To Report Page View 
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, [])
+ 
 
 
 
