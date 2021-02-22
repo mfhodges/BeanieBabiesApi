@@ -16,7 +16,7 @@ return(
             </div>
         </div>*/}
         <h1> Welcome!</h1>
-        <img src="/bb_worm.png" class="homepage-image" alt="Inch the Inchworm Beanie Baby"/>
+        <img src="/bb_worm.png" className="homepage-image" alt="Inch the Inchworm Beanie Baby"/>
         <p>
             This site offers a browsable collection of Beanie Babies and their associated meta-data. For more information on the project please read the <Link to="/about">About page</Link>.
 
