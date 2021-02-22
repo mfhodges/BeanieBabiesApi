@@ -18,7 +18,7 @@ import { gql } from '@apollo/client';
 
 
 const client = new ApolloClient({
-  //uri:'http://localhost:9000/.netlify/functions/graphql',
+  //uri:'https://www.beaniebabiesapi.com/.netlify/functions/graphql',
   uri: "/.netlify/functions/graphql",
   cache: new InMemoryCache(),
 });

@@ -1,24 +1,20 @@
-import React from 'react'
-import { gql, useQuery } from '@apollo/client';
-
+import React from "react";
+import { gql, useQuery } from "@apollo/client";
 
 const GET_MATCH = gql`
-query {
+  query {
     hello
-}
-
-`
+  }
+`;
 /**
  * This function excutes finding and displaying your Beanie Baby match!
- * 
+ *
  */
 
-export const BBMatch = ({birthday=0}) => {
-    const matches =  useQuery(GET_MATCH);
-    console.log({matches});
-    if (matches.loading) return "Loading...";
-    return(
-        <p> okay</p>
-    )
-
-}
+export const BBMatch = ({ birthday = 0 }) => {
+  const { loading, error, match } = useQuery(GET_MATCH);
+  console.log({ match });
+  if (loading) return "Loading...";
+  if (error) return "Error :(";
+  return <p> okay</p>;
+};
