@@ -8,13 +8,13 @@ export const Home =() =>{
 
 return(
     <div>
-        {/*<div className="alert">
+        <div className="alert">
             <div>
             <p>Hi there 👋 </p>
             <p>The <a href="https://devcenter.heroku.com/changelog-items/1823">cloud db</a> that was hosting this data has shut down 😔
-            </p><p>But don't worry!! I am working on a fix 🛠  💾   (that isn't 💰💰💰 ). But for the time being, the GraphQL/MongoDB connection is disabled and things may be broken 💔. </p>
+            </p><p>But don't worry!! I am working on a fix 🛠  💾   (that isn't 💰💰💰 ). But for the time being, the GraphQL/MongoDB connection is disabled. </p>
             </div>
-        </div>*/}
+        </div>
         <h1> Welcome!</h1>
         <img src="/bb_worm.png" className="homepage-image" alt="Inch the Inchworm Beanie Baby"/>
         <p>

@@ -9,23 +9,13 @@ import {BBProfile} from './pages/BBProfile'
 import {Birthday} from './pages/Birthday'
 import {Search} from './pages/Search'
 import {BBMatch} from './components/BBMatch'
-import { ApolloClient, InMemoryCache } from '@apollo/client';
-import { ApolloProvider } from '@apollo/client';
-import { gql } from '@apollo/client';
 
 
-
-const client = new ApolloClient({
-  //uri:'http://localhost:9000/.netlify/functions/graphql',
-  uri: "/.netlify/functions/graphql",
-  cache: new InMemoryCache(),
-});
 
 
 function App() {
-
 return (
-<ApolloProvider client={client}>
+  <>
       <Header />
       <div id="main">
         <div id="content">
@@ -55,7 +45,7 @@ return (
         </div>
       </div>
       <Footer />
-  </ApolloProvider>
+      </>
 );
 }
 

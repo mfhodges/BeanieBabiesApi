@@ -1,51 +1,5 @@
 import React, {useState} from 'react'
 import {BBCard} from '../components/BBCard'
-import { gql, useQuery } from '@apollo/client';
-
-
-
-const SEARCH_BIRTHDAYS_TODAY = gql`
-query ($month: String!, $day: String) {
-    getBeanies( input:{month:$month, day: $day}) {
-    id
-    img
-    title
-    zodiac
-    }
-  }
-`
-
-const SEARCH_BIRTHDAYS_MONTH = gql`
-query ($month: String!) {
-    getBeanies( input:{month:$month}) {
-    id
-    img
-    title
-    zodiac
-    }
-  }
-`
-/**
- * 
- * query {
-  beanie: getBeanies( input:{month:"May"}){
-    title
-		zodiac
-		img
-		theme
-		styleNumber
-		color
-		animal
-		subTheme
-    id
-    birthday {
-      month
-      day
-      year
-    }
-  }
-}
- */
 
 
 export const Birthday = () => {

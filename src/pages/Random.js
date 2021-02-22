@@ -1,26 +1,12 @@
 import React, {useState} from 'react';
 import {BBProfile} from './BBProfile';
-import { gql, useQuery } from '@apollo/client';
 import {getRandomBeanie} from '../data/utils';
-
-
-/**
- * This page will pull the a random Beanie from the DB
- * 
- */
 
 
 ///path="/beanies/:bbID" component={BBProfile} 
 
 
-const GET_BEANIES = gql`
-    query {
-        getBeanies {
-            title
-        }
-    }
-  
-`
+
 
 
 export const Random =  () => {
@@ -79,8 +65,3 @@ return(
         </div>
     </div>)
 }
-
-/*
-
-This page should be Related to the BBProfile and just pull up a random one. 
-*/

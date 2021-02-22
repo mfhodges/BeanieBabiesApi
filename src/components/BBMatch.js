@@ -1,12 +1,7 @@
 import React from "react";
-import { gql, useQuery } from "@apollo/client";
 import {getBeanie,getRandomBeanie} from '../data/utils';
 
-const GET_MATCH = gql`
-  query {
-    hello
-  }
-`;
+
 /**
  * This function excutes finding and displaying your Beanie Baby match!
  *

@@ -1,45 +1,30 @@
 import React, {useState} from 'react'
 import {BBCard} from '../components/BBCard'
 import { Link } from 'react-router-dom';
-import { gql, useLazyQuery } from '@apollo/client';
 import { getBeanies } from '../data/utils';
 
 
-const SEARCH_BEANIES = gql`
-query($search: String!) {
-    getBeanies(search:$search) {
-    id
-    img
-    title
-    zodiac
-    }
-  }
-`
-
-/**
- * 
- * The useLazyQuery hook is perfect for executing queries in response to events other than component rendering
- * const [getBeanies, { called,loading,data}] = useLazyQuery(SEARCH_BEANIES,{variables: { "search": title}});*/
-
-
- /// IF THERE ARE NONE DISPLAY DIFF TEXT
 
 export const Search = () => {
     const [title, updateTitle] = useState();
 
     const [beanies, setBeanies] = useState([]);
-    
+    const [isResults, setIsResults] = useState(false);
     
     const queryBeanies = () => {
       //updateTitle(e.target.value);
       console.log("searching for ", title)
       const result = getBeanies(title);
+      if (result.length) {
       setBeanies(result);
-      console.log(result);
+      setIsResults(true);
     }
-
-    //if (called && loading) return <p>Loading</p>;
-
+      // else no results
+      setIsResults(false);
+    }
+    if (!isResults) {
+      return <p>no results for that search, refresh and try again!</p>
+    }
 
     if (!beanies.length){
     return (
@@ -81,7 +66,7 @@ export const Search = () => {
       </>
     );
         }
-    
+    if (isResults){
     return (
         <>
             <h1>Results For: {title}</h1>
@@ -94,13 +79,6 @@ export const Search = () => {
         </div>
         </>
     )
+  }
+  return <p>an error occurred</p>
 }
-
-
-
-/**
- * 
-        {fakedata.map((img) => (
-            <BBCard beaniebaby={img} />
-        ))}
- */

@@ -11,16 +11,3 @@ export const BBCard = ({beaniebaby}) => (
         </div></a>
   );
   
-  /**
-   * 
-   * 
-   * 
-   *       <p>{beaniebaby.title}</p>
-      <p>{beaniebaby.birthday}</p>
-      <p>{beaniebaby.theme}</p>
-      <p>{beaniebaby.styleNumber}</p>
-      <p>{beaniebaby.color}</p>
-      <p>{beaniebaby.animal}</p>
-      <p>{beaniebaby.subtheme}</p>
-   * 
-   */
