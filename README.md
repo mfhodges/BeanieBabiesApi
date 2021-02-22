@@ -1,6 +1,7 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+This Static React App was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and gets data from __ INSERT HERE__
+
+
 
 ## Available Scripts
 

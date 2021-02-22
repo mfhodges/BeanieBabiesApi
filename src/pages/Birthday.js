@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import BBCard from '../components/BBCard'
+import {BBCard} from '../components/BBCard'
 import { gql, useQuery } from '@apollo/client';
 
 
@@ -48,19 +48,24 @@ query ($month: String!) {
  */
 
 
-export default function Birthday () {
+export const Birthday = () => {
+
+return (<p>sorry!</p>)
 
 /*
 This page should show who's birhday it currently is,
 if no ones birthday do a sad face and show who's birthday it will be this Month (easier to search). 
 */
+// this should be in a constants file
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
+// I should put this as a util function 
 const todayDate = new Date();
 const todayMonth = (todayDate.getMonth()+1).toString();
 const todayDay = todayDate.getDate().toString();
 console.log("Today is ", todayMonth, todayDay, typeof todayMonth);
+
 // Use a hook to query Graphql to get todays BDAY
 // If none set to sad face
 const _today =  useQuery(SEARCH_BIRTHDAYS_TODAY,{

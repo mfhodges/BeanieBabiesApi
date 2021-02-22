@@ -1,19 +1,19 @@
 
-import React, { Fragment } from 'react'
+import React from 'react'
 
 
 
-const Footer = () =>
-    <Fragment>
+export const Footer = () =>
+    <>
     <nav role="navigation" className="footer-nav"> <p><span role="img" aria-label="Sparkles">✨</span>thanks for visiting <span role="img" aria-label="Sparkles">✨</span></p>
     </nav>
     <footer role="contentinfo">
         <span className="credit">Built by <a href="https://madeleinehodges.com/"> Maddy Hodges</a>. </span>
     </footer>
-    </Fragment>
+    </>
 
 
-export default Footer
+ 
 
 
 

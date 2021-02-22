@@ -1,7 +1,7 @@
 import React, {useState, Fragment} from 'react'
-import BBCard from '../components/BBCard'
-import Select from 'react-select'
-
+import {BBCard} from '../components/BBCard'
+import Select from 'react-select';
+import { Link } from 'react-router-dom';
 import { gql, useLazyQuery } from '@apollo/client';
 
 //import ExampleDate from '../components/DatePicker'
@@ -21,8 +21,6 @@ query($search: String!) {
 
 /**
  * 
- * 
- * 
  * The useLazyQuery hook is perfect for executing queries in response to events other than component rendering
  * https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually
  */
@@ -30,21 +28,20 @@ query($search: String!) {
 
  /// IF THERE ARE NONE DISPLAY DIFF TEXT
 
-export default function Search () {
+export const Search = () => {
     //const [beanies, setBeanies]= useState(null);
     const [title, updateTitle] = useState("Enter Name");
     const [getBeanies, { called,loading,data}] = useLazyQuery(SEARCH_BEANIES,
         {variables: { "search": title}});
     const [bday, updateBday] = useState("Enter Date");
 
-    
 
     if (called && loading) return <p>Loading</p>;
 
 
     if (!called){
     return (
-      <Fragment>
+      <>
         <h2>
           <span role="img" aria-label="Magnifying Glass">
             🔎
@@ -59,7 +56,7 @@ export default function Search () {
         <form className="form-inline"
           onSubmit={(e) => {
             e.preventDefault();
-            getBeanies();
+           /* getBeanies();*/
           }}
         >
           <label htmlFor="title">
@@ -71,18 +68,18 @@ export default function Search () {
               onChange={(e) => updateTitle(e.target.value)}
             />
           </label>
-          <button>Submit</button>
+          <button disabled>Submit</button>
         </form>
         
         <hr></hr>
-        <h2>Search by Birthday</h2>
-          {/*<ExampleDate />*/}
+        <h2>Looking for your perfect match?</h2>
+          <p> Checkout out the <Link to="/match">matchmaker</Link>!
+          </p>
           
-      </Fragment>
+      </>
     );
         }
     
-        // <pre>{JSON.stringify(data,null,2)}</pre>
     return (
         <>
             <h1>Results For: {title}</h1>

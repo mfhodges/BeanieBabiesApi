@@ -25,7 +25,8 @@ query ($id: Int!) {
 `
 
 
-export default function BBProfile () {
+export const  BBProfile = () => {
+    // have this check if a param has been passed in the URL otherwise choose a random? 
     const beanieID = useParams().bbID;
 
     const data ={ beanie:
@@ -50,7 +51,7 @@ export default function BBProfile () {
     )*/
     
     return (
-      <Fragment>
+      <>
         <h1>{data.beanie.title}</h1>
         <div id="profile">
           <div>
@@ -91,7 +92,7 @@ export default function BBProfile () {
             <p>coming soon.</p>
           </div>
         </div>
-      </Fragment>
+      </>
     );
 }
 

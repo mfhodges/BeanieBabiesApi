@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BBCard = ({beaniebaby}) => (
+export const BBCard = ({beaniebaby}) => (
   <a href={`/beanies/${beaniebaby.id}`}>
   <div className="card">
           <img src={beaniebaby.img} alt="" />
@@ -9,9 +9,8 @@ const BBCard = ({beaniebaby}) => (
             <h5>{beaniebaby.zodiac}</h5>
           </div>
         </div></a>
-  )
+  );
   
-  export default BBCard
   /**
    * 
    * 

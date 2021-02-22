@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 
-export default function About () {
+export const  About =  () => {
 
 return(
     <div>

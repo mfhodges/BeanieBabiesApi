@@ -850,6 +850,10 @@ section {
     display: block
 }
 
+span[role=img] {
+    padding: 4px;
+}
+
 
 img {
     max-width: 100%
@@ -1002,7 +1006,7 @@ button {
 .form-inline {
     display:flex; flex-flow: row wrap; justify-content: center;
 }
-.form-inline input,span {
+.form-inline input, span {
     padding: 10px;
 }
 
