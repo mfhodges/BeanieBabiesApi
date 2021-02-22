@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom'
-import React, { useEffect} from 'react'
+import React from 'react'
 import {Header} from './components/Header'
 import {Footer} from './components/Footer'
 import {Home} from './pages/Home'
@@ -20,16 +20,6 @@ const client = new ApolloClient({
   uri: "/.netlify/functions/graphql",
   cache: new InMemoryCache(),
 });
-
-client
-  .query({
-    query: gql`
-      query {
-        hello
-      }
-    `
-  })
-  .then(result => console.log(result));
 
 
 function App() {

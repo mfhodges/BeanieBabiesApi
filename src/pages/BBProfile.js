@@ -1,7 +1,7 @@
 import React, {useState, Fragment} from 'react'
 import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom'
-
+import {getBeanie} from '../data/utils';
 
 const GET_BEANIE = gql`
 query ($id: Int!) {
@@ -27,53 +27,55 @@ query ($id: Int!) {
 
 export const  BBProfile = () => {
     // have this check if a param has been passed in the URL otherwise choose a random? 
-    const beanieID = useParams().bbID;
+    let beanieID = useParams().bbID;
+    const beanie = getBeanie(beanieID);
+  /*
 
-    const data ={ beanie:
-      {'id': 1,
-      'img': "https://beaniepedia.com/beanies/files/2020/01/kenyaboo-1.jpg",
-      'title': "Kenya the Ostrich (Large)",
-      'birthday': "19 May",
-      'theme': "Beanie Boos",
-      'styleNumber': "36302",
-      'color': "N/A",
-      'animal': "N/A",
-      'subtheme': "None"}
-  }
-
-
-    //if (loading) return "Loading...";
-
-    //if (error) return `Error! ${error.message}`;
-
+  "id": 12,
+    "title": "Helena the Unicorn Husky",
+    "link": "https://beaniepedia.com/beanies/beanie-boos/helena-the-unicorn-husky/",
+    "image": "https://beaniepedia.com/beanies/files/2020/01/helenaboo.jpg",
+    "theme": "Beanie Boos",
+    "StyleNumber": 36322,
+    "color": "Blue",
+    "swingTagGeneration": 4,
+    "tushTagGeneration": "C1",
+    "birthday": "29 May",
+    "releaseDate": "01/06/2019",
+    "releaseYear": 2019,
+    "retirementDate": "-",
+    "animal": "N/A",
+    "subtheme": "",
+    "size": ""
+ */
     /*return (
     <pre>{JSON.stringify(data.beanie,null,2)}</pre>
     )*/
     
     return (
       <>
-        <h1>{data.beanie.title}</h1>
+        <h1>{beanie.title}</h1>
         <div id="profile">
           <div>
             <dl>
               <dt>Theme</dt>
-              <dd>{data.beanie.theme}</dd>
+              <dd>{beanie.theme}</dd>
               <dt>Style No.</dt>
-              <dd>{data.beanie.styleNumber}</dd>
+              <dd>{beanie.styleNumber}</dd>
               <dt>Color</dt>
-              <dd>{data.beanie.color}</dd>
+              <dd>{beanie.color}</dd>
               <dt>Animal</dt>
-              <dd>{data.beanie.animal}</dd>
+              <dd>{beanie.animal}</dd>
               <dt>Subtheme</dt>
-              <dd>{data.beanie.subTheme}</dd>
+              <dd>{beanie.subtheme}</dd>
               <dt>Birthday</dt>
-              <dd>{data.beanie.birthday.month}/{data.beanie.birthday.day}</dd>
+              <dd>{beanie.birthday}</dd>
               <dt>Zodiac</dt>
-              <dd>{data.beanie.zodiac}</dd>
+              <dd>{beanie.astroSign}</dd>
             </dl>
           </div>
           <div id="polaroid">
-            <img src={data.beanie.img} alt="" height="200px" width="200px" />
+            <img src={beanie.image} alt="" height="200px" width="200px" />
           </div>
 
           <div>

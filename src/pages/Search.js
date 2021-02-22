@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {BBCard} from '../components/BBCard'
 import { Link } from 'react-router-dom';
 import { gql, useLazyQuery } from '@apollo/client';
-
+import { getBeanies } from '../data/utils';
 
 
 const SEARCH_BEANIES = gql`
@@ -19,24 +19,29 @@ query($search: String!) {
 /**
  * 
  * The useLazyQuery hook is perfect for executing queries in response to events other than component rendering
- * https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually
- */
+ * const [getBeanies, { called,loading,data}] = useLazyQuery(SEARCH_BEANIES,{variables: { "search": title}});*/
 
 
  /// IF THERE ARE NONE DISPLAY DIFF TEXT
 
 export const Search = () => {
-    //const [beanies, setBeanies]= useState(null);
-    const [title, updateTitle] = useState("Enter Name");
-    const [getBeanies, { called,loading,data}] = useLazyQuery(SEARCH_BEANIES,
-        {variables: { "search": title}});
-    const [bday, updateBday] = useState("Enter Date");
+    const [title, updateTitle] = useState();
+
+    const [beanies, setBeanies] = useState([]);
+    
+    
+    const queryBeanies = () => {
+      //updateTitle(e.target.value);
+      console.log("searching for ", title)
+      const result = getBeanies(title);
+      setBeanies(result);
+      console.log(result);
+    }
+
+    //if (called && loading) return <p>Loading</p>;
 
 
-    if (called && loading) return <p>Loading</p>;
-
-
-    if (!called){
+    if (!beanies.length){
     return (
       <>
         <h2>
@@ -53,7 +58,7 @@ export const Search = () => {
         <form className="form-inline"
           onSubmit={(e) => {
             e.preventDefault();
-           /* getBeanies();*/
+            queryBeanies(e);
           }}
         >
           <label htmlFor="title">
@@ -65,7 +70,7 @@ export const Search = () => {
               onChange={(e) => updateTitle(e.target.value)}
             />
           </label>
-          <button disabled>Submit</button>
+          <button >Submit</button>
         </form>
         
         <hr></hr>
@@ -83,7 +88,7 @@ export const Search = () => {
             <p>Pagination coming soon.</p>
             
             <div className='cards'>
-            {data.getBeanies.map((beanie) => (
+            {beanies.map((beanie) => (
                 <BBCard beaniebaby={beanie} key={beanie.id}/>
             ))}
         </div>

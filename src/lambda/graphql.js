@@ -1,6 +1,9 @@
 // src/lambda/graphql.js
 const { ApolloServer, gql } = require("apollo-server-lambda");
 
+
+
+
 const typeDefs = gql`
   type Query {
     hello: String
@@ -10,7 +13,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: (parent, args, context) => {
-      return "Hello, world!";
+      return "Hello, world! Currently GraphQL has been disabled for this whole Application";
     }
   }
 };

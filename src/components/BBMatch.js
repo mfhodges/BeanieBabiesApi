@@ -1,5 +1,6 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+import {getBeanie,getRandomBeanie} from '../data/utils';
 
 const GET_MATCH = gql`
   query {
@@ -9,12 +10,15 @@ const GET_MATCH = gql`
 /**
  * This function excutes finding and displaying your Beanie Baby match!
  *
+ *  I am a <insert zodiac sign> looking for a <zodiac sign>
+ * 
  */
 
 export const BBMatch = ({ birthday = 0 }) => {
   const { loading, error, data } = useQuery(GET_MATCH);
   console.log({ data });
-
+  console.log(getBeanie(1));
+  console.log("Random",getRandomBeanie());
   if (loading) return "Loading...";
   if (error) return "Error :(";
   if (data) {
