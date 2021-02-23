@@ -26,7 +26,6 @@ return(
     <div>
         <h1>Today's Birthday!<span role="img" aria-label="party popper">🎉</span></h1>
         <h4>Date: {todayMonth}/{todayDay}</h4>
-        <p> Search Capabilities comming soon.</p>
         <div className='bdaycards'>
         {bdayBeanies.map((beanie) => (
             <BBCard beaniebaby={beanie} key={beanie.id} />

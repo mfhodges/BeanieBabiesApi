@@ -39537,6 +39537,25 @@ export const data = [
     "animal": "Dragon",
     "subtheme": "",
     "size": ""
+  },
+  {
+    "id": 2082,
+    "title": "Scurry the Beetle",
+    "link": "https://beaniepedia.com/beanies/beanie-babies/scurry-the-beetle/",
+    "image": "https://beaniepedia.com/beanies/files/2020/11/scurry.jpg",
+    "theme": "Beanie Babies",
+    "styleNumber": 04281,
+    "astroSign": "Sagitarius",
+    "color": "Green",
+    "swingTagGeneration": 6,
+    "tushTagGeneration": 9,
+    "birthday": "18 January 2000",
+    "releaseDate": "13/02/2000",
+    "releaseYear": 2000,
+    "retirementDate": "15/12/2000",
+    "animal": "Beetle",
+    "subtheme": "",
+    "size": ""
   }
 ]
 ;

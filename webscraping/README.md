@@ -31,7 +31,6 @@ If a field was blank it was set to "N/A". For `Retirement Date` if the value is 
 - Some Birthdays contain the year and some dont. 
 - Some Release Dates and Retirement Date are listed M/D/Y and some are D/M/Y.
 
-No other data cleaning was implemented... though it should happen at some point! 
 
 # Future Work
 - Researching the Beanie Babies that do not have birthdays and including them in the DB.

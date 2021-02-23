@@ -1,6 +1,5 @@
 
-This Static React App was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and gets data from __ INSERT HERE__
-
+This Static React App was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and gets data from a local static file `/src/data/Data.min.js`. 
 
 
 ## Available Scripts
