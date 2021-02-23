@@ -9,7 +9,7 @@ export const Header = () =>
                 <h1><a href="/">Beanie Babies</a></h1>
             </hgroup>
             <ul className="header-links">
-                <li><a href="/.netlify/functions/graphql" target="_blank" rel="noopener noreferrer">GraphQL</a></li>
+                {/*<li><a href="/.netlify/functions/graphql" target="_blank" rel="noopener noreferrer">GraphQL</a></li>*/}
                 <li><Link to="/about">About</Link></li>
                 <li><a href="https://github.com/Mfhodges/BB-frontend" target="_blank" rel="noopener noreferrer" >Github</a></li>
             </ul>

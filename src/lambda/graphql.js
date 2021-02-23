@@ -1,7 +1,7 @@
 // src/lambda/graphql.js
 const { ApolloServer, gql } = require("apollo-server-lambda");
 
-
+/* THIS FILES IS NO LONGER IN USE IN THIS APPLICATION */
 
 
 const typeDefs = gql`

@@ -853,7 +853,9 @@ section {
 span[role=img] {
     padding: 4px;
 }
-
+span[role=img].big {
+    font-size:20px;
+}
 
 img {
     max-width: 100%
@@ -945,7 +947,7 @@ dl {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, 200px);
-    grid-template-rows: repeat(3, 300px);
+    grid-template-rows: repeat(auto-fit, 300px);
     grid-auto-flow: dense;
   }
 
@@ -1065,14 +1067,15 @@ input {
         margin-top: 10px;
     }
 
-
   }
-  
+  div.alert {
+      padding-bottom: 10px;
+  }
+
   div.alert > div {
     padding:10px;
     border: 10px solid;
     border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;  }
-
 
   img.portrait {
     display: block;

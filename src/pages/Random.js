@@ -1,23 +1,8 @@
 import React, {useState} from 'react';
-import {BBProfile} from './BBProfile';
 import {getRandomBeanie} from '../data/utils';
 
-
-///path="/beanies/:bbID" component={BBProfile} 
-
-
-
-
-
 export const Random =  () => {
-    // wrap this in an await?
-const beanie = getRandomBeanie()
-
-//const { loading, error, data } = useQuery(GET_BEANIES);
-//console.log("data",data);
-
-
-// DO WE NEED A BUTTON TO REFRESH THE PAGE 
+const beanie = getRandomBeanie();
 
 return(
     <div>
@@ -45,22 +30,6 @@ return(
           </div>
           <div id="polaroid">
             <img src={beanie.image} alt="" height="200px" width="200px" />
-          </div>
-
-          <div>
-            {/* Desription goes here */}
-            <h3>Description</h3>
-            <p>coming soon.</p>
-          </div>
-          <div>
-            {/* Poem goes here */}
-            <h3>Poem</h3>
-            <p>coming soon.</p>
-          </div>
-          <div>
-            {/* Collectors Note goes here */}
-            <h3>Collectors Note</h3>
-            <p>coming soon.</p>
           </div>
         </div>
     </div>)

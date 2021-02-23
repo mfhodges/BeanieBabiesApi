@@ -81,11 +81,8 @@ def find_astro_signs(inputfile="fulldata.csv"):
         data = line.split(",")
         style_number =data[4]
         birthday = data[8]
-        print(birthday,style_number)
         sign = birthday2sign(birthday)
-        print(style_number, birthday,sign)
-        # style number is a unique field that will be used to later relate the signs to the full data
-        # style number is actually not unique!! 
+        print(birthday, birthday,sign)
         outfile.write("%s, %s\n" % (style_number,sign))
 
 
@@ -93,3 +90,4 @@ def find_astro_signs(inputfile="fulldata.csv"):
 find_astro_signs()
 
 #birthday2sign("03 May 2005") #--> should return taurus
+#birthday2sign("12 November") #--> should return Scorpio

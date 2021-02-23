@@ -6,43 +6,23 @@ import sqlite3 as sql
 from sqlite3 import Error
 import csv
 
-#https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-# https://towardsdatascience.com/web-scraping-board-game-descriptions-with-python-7b8f6a5be1f3
 
 """
-#explore the first board game page
-url = r"https://boardgamegeek.com/boardgame/174430/gloomhaven"
-page_data = requests.get(url)
-r
-soup
+Basic webscraping with Beautiful Soup and WP REST API
 
-
-# you want to get the table of data with id="features"
+Part 1. scrape links and titles to each Beanie Baby - gather_links()
+Part 2. 
 """
-
-# this does not contain all of the meta-data i am looking for unfortunately
-#https://beaniepedia.com/beanies/wp-json/wp/v2/posts/25965
-#https://beaniepedia.com/beanies/wp-json/
-
 
 
 def gather_links(filename="bbLinks.csv"):
-
-    # there could be an issue with saving the data to a df and then writing to a CSV file but lets see if this works - a better way would be to write to the CSV for each iteration of the for loop
-    # https://beaniepedia.com/beanies/release-year/<year>/
-    years = ['1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015',
-        '2016','2017','2018','2019','2020']
-
-    # https://beaniepedia.com/beanies/wp-json/wp/v2/posts?per_page=50&page=42
-    # url part 1
-    up1 = r'https://beaniepedia.com/beanies/wp-json/wp/v2/posts?per_page=50'
-    #up1 = r"https://beaniepedia.com/beanies/release-year/"
+    # MAX PAGE = https://beaniepedia.com/beanies/wp-json/wp/v2/posts?per_page=50&page=42 --
+    url_part = r'https://beaniepedia.com/beanies/wp-json/wp/v2/posts?per_page=50'
     # will populate this to write to csv
-    bb_dict = {'link':[],'title':[]}
+    bb_dict = {'link':[],'title':[]} # empty to show schema 
 
-    #for loop
-    for u in range(1,43):
-        url = up1 + '&page=' + str(u)
+    for u in range(1,43): # hardcode page limit 
+        url = url_part + '&page=' + str(u)
         print(url)
         d = requests.get(url).json()
         for item in d:
@@ -59,11 +39,11 @@ def build_DB():
     bbData = pd.read_csv(r'bbLinks.csv')
     bbData.head()
     bbList = []
-    #for loop
+    #for loop through pre-scraped links 
     for u in range(0,len(bbData.index)):
         bb = {'title':bbData['title'][u].replace(",",""),'link':bbData['link'][u].replace(",","")}
         url = bbData['link'][u]
-        print(url)
+        print("reading data from: ", url)
         d = requests.get(url)
         soup = BeautifulSoup(d.content, 'html.parser')
 
@@ -75,9 +55,9 @@ def build_DB():
             property = r.th.string.replace(":","")
             value = r.td.string
 
-            # Basic data cleaning
+            # Basic data cleaning 
             if value:
-                value = value.replace(",","")
+                value = value.replace(",","").replace("&#8211","-").replace()
             else: # value does not exist
                 value = "N/A"
             
@@ -91,21 +71,15 @@ def build_DB():
     bbData_all.head()
     export_csv = bbData_all.to_csv('fulldata.csv', index = None, header=True)
 
-    #create an sqlite database and connection
-    #conn = sql.connect(r'bbdb')
 
-    #c = conn.cursor()
-    #load the data into the database
-    #bbData_all.to_sql('beanieBabies', conn)
-    #query the data to verify
-    #q = pd.read_sql('select * from beanieBabies', conn)
-    #q.head()
-
-#gather_links()
+## this is what generates the scraped data
+gather_links()
 build_DB()
 
 
-def test():
+
+## below is a small example so I could learn how to scrape data.
+def sample():
     url = 'https://beaniepedia.com/beanies/beanie-boos/glamour-the-leopard-large-2nd-release/'
     bb ={}
     d = requests.get(url)

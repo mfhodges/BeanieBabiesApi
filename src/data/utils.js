@@ -1,12 +1,12 @@
-
 import {data} from './Data.js'
+import {MONTHS,ASTROLOGY_PAIRS} from './constants'
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-  }
+}
 
 export function getRandomBeanie() {
-    const total = data.length
+    const total = data.length;
     const id = getRandomInt(total)
     return data[id];
 }
@@ -18,7 +18,6 @@ export function getBeanie(id) {
 
 export function getBeanies(searchTerm){
     const term = searchTerm.toLowerCase()    
-
     // if search term len is 1 then b.title begins with searchTerm 
     if (searchTerm.length ===1 ){
         return data.filter(b => b.title.toLowerCase().startsWith(term))
@@ -28,18 +27,26 @@ export function getBeanies(searchTerm){
     return beanies;
 }
 
-export function getMatch(birthday){
-    //bday has format <day> <month> <year>, Year is optional and <day> may start with 0 (e.g.) '09 November'
-
+export function getMatch(astroSign){
+    console.log("looking for: ", ASTROLOGY_PAIRS[astroSign])
+    const possibleMatches = data.filter(b => b.astroSign === ASTROLOGY_PAIRS[astroSign]);
+    const randomInt = getRandomInt(possibleMatches.length) 
+    console.log(randomInt);
+    return possibleMatches[randomInt]
 }
 
-
-
-/*
-getBeanies(id) {
-
+export function getBeaniesMonthBday(month) {
+    // assumes month is an int
+    const monthName = MONTHS[month];
+    const beanies = data.filter(b => b.birthday.includes(monthName))
+    return beanies
 }
 
-getMatch(sign) {
+export function getBeaniesBday(month,day) {
+    // assumes month & day are ints
+    const dayString = day > 10 ? day.toString() : "0"+day.toString(16)
+    const monthBeanies = getBeaniesMonthBday(month)
+    const beanies = monthBeanies.filter(b => b.birthday.startsWith(dayString))
+    return beanies;
+}
 
-}*/
