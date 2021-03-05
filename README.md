@@ -1,6 +1,8 @@
 
 This Static React App was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and gets data from a local static file `/src/data/Data.min.js`. 
 
+# Check out the App in Production: [beaniebabiesapi.com](https://www.beaniebabiesapi.com)
+
 
 ## Available Scripts
 
